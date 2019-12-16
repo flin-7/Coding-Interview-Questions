@@ -15,17 +15,17 @@ public class StringCompression {
      * @return
      */
     public static String compress(String s) {
-        StringBuilder sb = new StringBuilder();
+        StringBuilder out = new StringBuilder();
         int sum = 1;
         for (int i = 0; i < s.length() - 1; i++) {
             if (s.charAt(i) == s.charAt(i + 1)) {
                 sum++;
             } else {
-                sb.append(s.charAt(i)).append(sum);
+                out.append(s.charAt(i)).append(sum);
                 sum = 1;
             }
         }
-        sb.append(s.charAt(s.length() - 1)).append(sum);
-        return sb.toString().length() < s.length() ? sb.toString() : s;
+        out.append(s.charAt(s.length() - 1)).append(sum);
+        return out.toString().length() < s.length() ? out.toString() : s;
     }
 }
