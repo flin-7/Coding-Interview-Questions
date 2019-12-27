@@ -21,15 +21,15 @@ public class Anagrams {
 
         int[] letters = new int[256];
 
-        for (char c : s1.toCharArray()) {
+        for (char c: s1.toCharArray()) {
             letters[c]++;
         }
 
-        for (char c : s2.toCharArray()) {
+        for (char c: s2.toCharArray()) {
             letters[c]--;
         }
 
-        for (int i : letters) {
+        for (int i: letters) {
             if (i != 0) return false;
         }
 

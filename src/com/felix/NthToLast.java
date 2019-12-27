@@ -11,14 +11,13 @@ public class NthToLast {
         Node curr = node;
         Node follower = node;
 
+        // what if n > than length of list?
         for (int i = 0; i < n; i++) {
-            if (curr == null) {
-                return null;
-            }
+            if (curr == null) return null;
             curr = curr.next;
         }
 
-        while (curr.next!= null) {
+        while (curr.next != null) {
             curr = curr.next;
             follower = follower.next;
         }
