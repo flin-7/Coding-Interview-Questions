@@ -1,37 +1,34 @@
 package com.felix;
 
 import java.util.LinkedList;
-import java.util.List;
 import java.util.Queue;
 
 public class TreeLevelOrder {
 
-    private class Node {
+    private class TreeNode {
         int value;
-        Node left, right;
+        TreeNode left, right;
 
-        Node(int value) {
+        TreeNode(int value) {
             this.value = value;
         }
     }
 
-    private void traverse(Node tree) {
-        if (tree == null) {
-            throw new IllegalArgumentException();
-        }
+    private void levelOrderTraverse(TreeNode root) {
+        if (root == null) return;
 
-        Queue<Node> toVisit = new LinkedList<>();
-        toVisit.add(tree);
+        Queue<TreeNode> queue = new LinkedList<>();
+        queue.add(root);
 
-        while (!toVisit.isEmpty()) {
-            Node curr = toVisit.remove();
+        while (!queue.isEmpty()) {
+            TreeNode curr = queue.remove();
             System.out.println(curr.value);
 
             if (curr.left != null) {
-                toVisit.add(curr.left);
+                queue.add(curr.left);
             }
             if (curr.right != null) {
-                toVisit.add(curr.right);
+                queue.add(curr.right);
             }
         }
     }
